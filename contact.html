@@ -64,7 +64,13 @@
             <div class="col-xxl-8 col-md-8 col-10 mx-auto">
                 <!-- CAMBIA ESTA LÍNEA: agrega method, action y name -->
                 <!-- Cambia el formulario así: -->
-<form name="contact" method="POST" data-netlify="true" action="/contact?success=true">
+<form name="contact" method="POST" data-netlify="true" netlify>
+    
+    <!-- ⬇⬇⬇ ESTAS DOS LÍNEAS SON LAS CLAVE ⬇⬇⬇ -->
+    <input type="hidden" name="_redirect" value="success.html">
+    <input type="hidden" name="form-name" value="contact">
+    
+    <!-- Campos del formulario -->
     <div class="mb-3">
         <label for="nombre" class="form-label">Nombre: </label>
         <input type="text" class="form-control" id="nombre" name="nombre" required>
@@ -109,8 +115,8 @@
         <textarea class="form-control" id="mensaje" name="mensaje" rows="3" placeholder="¿En qué podemos ayudarte?"></textarea>
     </div>
 
-    <!-- Campo oculto para redirección después del envío -->
-    <div data-netlify-recaptcha="true"></div>
+    <!-- ⬇⬇⬇ CAPTCHA AQUÍ (IMPORTANTE: debe estar ANTES del botón) ⬇⬇⬇ -->
+    <div class="mb-3" data-netlify-recaptcha="true"></div>
     
     <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
 </form>
